@@ -13,3 +13,8 @@ Cosas para hacer...
 * Implementar 5 niveles con diferentes dificultades.
 * Implementar vida del player.
 * Implementar diferente resistencia de los enemigos.
+
+Inspiraciones
+* https://play.google.com/store/apps/details?id=com.hg.aotl
+* http://coolrom.com/roms/snes/2355/Space_Invaders_-_The_Original_Game.php
+
