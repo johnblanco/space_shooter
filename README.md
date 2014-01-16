@@ -15,6 +15,7 @@ Cosas para hacer...
 * Implementar diferente resistencia de los enemigos.
 
 Inspiraciones
-* https://play.google.com/store/apps/details?id=com.hg.aotl
-* http://coolrom.com/roms/snes/2355/Space_Invaders_-_The_Original_Game.php
+* Aces of the Luftwaffe: https://play.google.com/store/apps/details?id=com.hg.aotl
+* space invaders: http://coolrom.com/roms/snes/2355/Space_Invaders_-_The_Original_Game.php
+* chicken invaders: http://www.youtube.com/watch?v=h-pbxu7If5c
 
