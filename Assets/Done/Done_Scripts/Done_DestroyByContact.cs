@@ -4,7 +4,6 @@ using System.Collections;
 public class Done_DestroyByContact : MonoBehaviour
 {
 	public GameObject explosion;
-	public GameObject playerExplosion;
 	public int scoreValue;
 	private Done_GameController gameController;
 
@@ -35,12 +34,13 @@ public class Done_DestroyByContact : MonoBehaviour
 
 		if (other.tag == "Player")
 		{
-			Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
-			gameController.GameOver();
+			gameController.HitPlayer(); //en caso de que haya que destruir al jugador, se encarga el gamecontroller de hacerlo
+			
+		}else{
+			Destroy (other.gameObject);
 		}
 		
 		gameController.AddScore(scoreValue);
-		Destroy (other.gameObject);
 		Destroy (gameObject);
 	}
 }

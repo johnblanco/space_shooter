@@ -9,14 +9,17 @@ public class Done_GameController : MonoBehaviour
 	public float spawnWait;
 	public float startWait;
 	public float waveWait;
+	public int remainingHits;
 	
 	public GUIText scoreText;
 	public GUIText restartText;
 	public GUIText gameOverText;
+	public GameObject playerExplosion;
 	
 	private bool gameOver;
 	private bool restart;
 	private int score;
+	
 	
 	void Start ()
 	{
@@ -25,6 +28,7 @@ public class Done_GameController : MonoBehaviour
 		restartText.text = "";
 		gameOverText.text = "";
 		score = 0;
+		remainingHits = 3;
 		UpdateScore ();
 		StartCoroutine (SpawnWaves ());
 	}
@@ -79,5 +83,14 @@ public class Done_GameController : MonoBehaviour
 	{
 		gameOverText.text = "Game Over!";
 		gameOver = true;
+	}
+
+	public void HitPlayer(){
+		remainingHits--;
+		if(remainingHits==0){
+			Destroy(gameObject);
+			Instantiate(playerExplosion, transform.position, transform.rotation);
+			GameOver();
+		}
 	}
 }

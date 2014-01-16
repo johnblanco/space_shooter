@@ -3,6 +3,8 @@ space_shooter
 
 Cosas para hacer...
 
+* Implementar vida del player.
+
 * Matar enemigo y que aparezca una caja que te cambie el arma.
 * Otro enemigo con diferente comportamiento.
 * Implementar seek and destroy en algún tipo de enemigo.
@@ -11,5 +13,5 @@ Cosas para hacer...
 * Implementar menu.
 * Implementar pantalla de highscore.
 * Implementar 5 niveles con diferentes dificultades.
-* Implementar vida del player.
+
 * Implementar diferente resistencia de los enemigos.
