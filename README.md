@@ -27,4 +27,4 @@ Sin embargo para el anio 2404 las relaciones con los Fipggevolem se endurecieron
 
 Para el anio 2409 las relaciones estaban tan tensas que la guerra parecia algo inminente.
 
-Tu trabajo es patrullar junto con 15.000 otros capitanes de nave el cinturon de asteroides ubicado entre Marte y Jupiter para detectar cualquier intento de ataque sorpresivo de los Fipggevolem. 
+Tu trabajo es patrullar el cinturon de asteroides ubicado entre Marte y Jupiter para detectar cualquier intento de ataque sorpresivo de los Fipggevolem. 
