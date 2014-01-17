@@ -3,6 +3,9 @@ using System.Collections;
 
 public class Done_GameController : MonoBehaviour
 {
+	public GameObject playerExplosion;
+	public GameObject player;
+
 	public GameObject[] hazards;
 	public Vector3 spawnValues;
 	public int hazardCount;
@@ -13,6 +16,8 @@ public class Done_GameController : MonoBehaviour
 	public GUIText scoreText;
 	public GUIText restartText;
 	public GUIText gameOverText;
+
+	public int playerHealth;
 	
 	private bool gameOver;
 	private bool restart;
@@ -79,5 +84,15 @@ public class Done_GameController : MonoBehaviour
 	{
 		gameOverText.text = "Game Over!";
 		gameOver = true;
+	}
+
+	public void HitPlayer(int hitPoints){
+		playerHealth-=hitPoints;
+		Debug.Log(playerHealth);
+		if(playerHealth<=0){
+			Destroy(player);
+			Instantiate(playerExplosion, player.transform.position, player.transform.rotation);
+			GameOver();
+		}
 	}
 }
