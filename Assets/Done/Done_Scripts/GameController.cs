@@ -8,4 +8,10 @@ public class GameController : MonoBehaviour {
 	void Start () {
 	}
 
+  void Update(){
+    if(Input.GetKeyUp(KeyCode.Space)){
+      energyBar.health -= 10;
+    }
+  }
+
 }

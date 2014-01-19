@@ -16,6 +16,7 @@ public class Done_GameController : MonoBehaviour
 	public GUIText scoreText;
 	public GUIText restartText;
 	public GUIText gameOverText;
+	public EnergyBar energyBar;
 
 	public int playerHealth;
 	
@@ -88,7 +89,7 @@ public class Done_GameController : MonoBehaviour
 
 	public void HitPlayer(int hitPoints){
 		playerHealth-=hitPoints;
-		Debug.Log(playerHealth);
+		energyBar.health=playerHealth;
 		if(playerHealth<=0){
 			Destroy(player);
 			Instantiate(playerExplosion, player.transform.position, player.transform.rotation);
