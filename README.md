@@ -1,8 +1,13 @@
 space_shooter
 =============
 
+Release date: ????
+
+Sprints: una semana, miercoles a miercoles?
+
 Cosas para hacer...
 
+* Reestructurar codigo, no mas carpetas y recursos Done_ (lo esta haciendo jp en el branch no_mas_done)
 * Matar enemigo y que aparezca una caja que te cambie el arma.
 * Otro enemigo con diferente comportamiento.
 * Implementar seek and destroy en algún tipo de enemigo.
@@ -11,8 +16,12 @@ Cosas para hacer...
 * Implementar menu.
 * Implementar pantalla de highscore.
 * Implementar 5 niveles con diferentes dificultades.
-* Implementar vida del player.
 * Implementar diferente resistencia de los enemigos.
+* Que los enemigos tiren cajas para recuperar salud
+* Boss al final de los 5 niveles
+* Cambiar la forma de que spawnean los asteroides y los enemigos, no mas random!
+* Cambiar los controles, si jugas 1p -> flechas cursoras + espacio o mouse y clic
+                         si jugas 2p -> jugador 1: mouse, jugador 2: teclado  
 
 Inspiraciones
 * Aces of the Luftwaffe: https://play.google.com/store/apps/details?id=com.hg.aotl
