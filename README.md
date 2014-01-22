@@ -1,13 +1,12 @@
 space_shooter
 =============
 
-Release date: ????
+Release date: 1/3/2014
 
-Sprints: una semana, miercoles a miercoles?
+Sprints: miercoles a miercoles
 
 Cosas para hacer...
 
-* Reestructurar codigo, no mas carpetas y recursos Done_ (lo esta haciendo jp en el branch no_mas_done)
 * Matar enemigo y que aparezca una caja que te cambie el arma.
 * Otro enemigo con diferente comportamiento.
 * Implementar seek and destroy en algún tipo de enemigo.
