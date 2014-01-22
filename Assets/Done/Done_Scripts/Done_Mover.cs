@@ -7,6 +7,7 @@ public class Done_Mover : MonoBehaviour
 
 	void Start ()
 	{
+		print (this.tag);
 		rigidbody.velocity = transform.forward * speed;
 	}
 }
