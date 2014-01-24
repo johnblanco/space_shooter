@@ -87,6 +87,12 @@ public class GameController : MonoBehaviour
 		gameOver = true;
 	}
 
+	public void RestoreHealth(int healthPoints){
+		playerHealth+=healthPoints;
+		energyBar.health= Mathf.Clamp(playerHealth, healthPoints, 100);
+		
+	}
+	
 	public void HitPlayer(int hitPoints){
 		playerHealth-=hitPoints;
 		energyBar.health=playerHealth;
@@ -95,5 +101,9 @@ public class GameController : MonoBehaviour
 			Instantiate(playerExplosion, player.transform.position, player.transform.rotation);
 			GameOver();
 		}
+	}
+
+	public void GiveWeapon(){
+		Debug.Log("Tengo nueva weapon");
 	}
 }
