@@ -5,23 +5,6 @@ Release date: 1/3/2014
 
 Sprints: miercoles a miercoles
 
-Cosas para hacer...
-
-* Matar enemigo y que aparezca una caja que te cambie el arma.
-* Otro enemigo con diferente comportamiento.
-* Implementar seek and destroy en algún tipo de enemigo.
-* Implementar vuelo en formación de los enemigos.
-* Implementar modo cooperativo.
-* Implementar menu.
-* Implementar pantalla de highscore.
-* Implementar 5 niveles con diferentes dificultades.
-* Implementar diferente resistencia de los enemigos.
-* Que los enemigos tiren cajas para recuperar salud
-* Boss al final de los 5 niveles
-* Cambiar la forma de que spawnean los asteroides y los enemigos, no mas random!
-* Cambiar los controles, si jugas 1p -> flechas cursoras + espacio o mouse y clic
-                         si jugas 2p -> jugador 1: mouse, jugador 2: teclado  
-
 Inspiraciones
 * Aces of the Luftwaffe: https://play.google.com/store/apps/details?id=com.hg.aotl
 * space invaders: http://coolrom.com/roms/snes/2355/Space_Invaders_-_The_Original_Game.php
