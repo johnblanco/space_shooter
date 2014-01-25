@@ -55,10 +55,9 @@ public class DestroyByContact : MonoBehaviour
 	void MaybeGiveLoot(){
 		if(healthBox != null && weaponBox !=null){
 
-			bool hasToSpawn = Random.Range(0,5) == 0;
+			bool hasToSpawn = true;
 			if(hasToSpawn){
-				Debug.Log("hasToSpawn box");
-				bool isHealth = Random.Range(0,1) == 0;
+				bool isHealth = Random.Range(0,100) % 2 == 0;
 				if(isHealth)
 					Instantiate(healthBox, transform.position, transform.rotation);		
 				else

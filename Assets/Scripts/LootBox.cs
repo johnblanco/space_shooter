@@ -6,11 +6,22 @@ public class LootBox : MonoBehaviour {
   public GameController gameController;
   public bool isHealth;
 
+  void Start ()
+  {
+    GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
+    if (gameControllerObject != null)
+    {
+      gameController = gameControllerObject.GetComponent <GameController>();
+    }
+    if (gameController == null)
+    {
+      Debug.Log ("Cannot find 'GameController' script");
+    }
+  }
+
   void OnTriggerEnter (Collider other){
     if (other.tag == "Player")
     {
-      //FIXME: esta saltando null reference exception, creo que podria inicializar el gameController desde el destroyByContact
-      // que fue el que spawneo la caja
       if(isHealth)
         gameController.RestoreHealth(34);
       else
