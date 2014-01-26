@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
   {
     if (Input.GetButton("Fire1"))
       {
-        Debug.Log("Fire");
+        
         this.currentWeapon.Fire();
       
       }
