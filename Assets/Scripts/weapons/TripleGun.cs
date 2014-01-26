@@ -10,21 +10,18 @@
 using System;
 using UnityEngine;
 
-public class SimpleGun : Weapon
+public class TripleGun : Weapon
 {
   public GameObject shot;
-  
   public float fireRate = 0.20f; // default
   private float nextFire;
   
-  public SimpleGun(GameObject spawnObject) : base(spawnObject)
+  public TripleGun(GameObject spawnObject) : base(spawnObject)
   {
-
     
     this.shot = Resources.Load("Prefabs/Bolt") as GameObject;
     this.spawnObject.AddComponent<AudioSource>();
     this.spawnObject.audio.clip = Resources.Load("Audio/weapon_player") as AudioClip;
-    
   }
   
   public override void Fire()
@@ -32,7 +29,11 @@ public class SimpleGun : Weapon
     if (Time.time > nextFire)
       {
         nextFire = Time.time + fireRate;
-        GameObject.Instantiate(this.shot, spawnObject.transform.position, spawnObject.transform.rotation);
+        
+        GameObject.Instantiate(this.shot, spawnObject.transform.position, Quaternion.Euler(0.0f, 5.0f, 0.0f));
+        GameObject.Instantiate(this.shot, spawnObject.transform.position, Quaternion.Euler(0.0f, -5.0f, 0.0f));
+        GameObject.Instantiate(this.shot, spawnObject.transform.position, Quaternion.Euler(0.0f, 0.0f, 0.0f));
+          
         this.spawnObject.audio.Play();
       }
   }

@@ -12,9 +12,9 @@ using UnityEngine;
 
 public abstract class Weapon
 {
-  public Transform spawnObject;
+  public GameObject spawnObject;
     
-  public Weapon(Transform spawnObject)
+  public Weapon(GameObject spawnObject)
   {
     this.spawnObject = spawnObject;
   }

@@ -3,11 +3,11 @@ using System.Collections;
 
 public class Mover : MonoBehaviour
 {
-	public float speed;
+  public float speed;
 
-	void Start ()
-	{
+  void Start()
+  {
     rigidbody.velocity = transform.forward * speed;
-	}
+  }
 
 }
