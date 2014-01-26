@@ -9,6 +9,7 @@
 // ------------------------------------------------------------------------------
 using System;
 using UnityEngine;
+using _r = ResourceLoader;
 
 public class SimpleGun : Weapon
 {
@@ -21,9 +22,9 @@ public class SimpleGun : Weapon
   {
 
     
-    this.shot = Resources.Load("Prefabs/Bolt") as GameObject;
+    this.shot = _r.Load<GameObject>("Prefabs/Bolt");
     this.spawnObject.AddComponent<AudioSource>();
-    this.spawnObject.audio.clip = Resources.Load("Audio/weapon_player") as AudioClip;
+    this.spawnObject.audio.clip = _r.Load<AudioClip>("Audio/weapon_player");
     
   }
   
