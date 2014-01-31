@@ -56,10 +56,14 @@
      <Compile Include="Assets\Scripts\FixedDirectionMover.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\LootBox.cs" />
-     <Compile Include="Assets\Scripts\Mover.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\RandomRotator.cs" />
+     <Compile Include="Assets\Scripts\ResourceLoader.cs" />
      <Compile Include="Assets\Scripts\WeaponController.cs" />
+     <Compile Include="Assets\Scripts\movers\ZMover.cs" />
+     <Compile Include="Assets\Scripts\movers\ZXMover.cs" />
+     <Compile Include="Assets\Scripts\weapons\EnemySeekerElement.cs" />
+     <Compile Include="Assets\Scripts\weapons\GuidedMissile.cs" />
      <Compile Include="Assets\Scripts\weapons\SimpleGun.cs" />
      <Compile Include="Assets\Scripts\weapons\TripleGun.cs" />
      <Compile Include="Assets\Scripts\weapons\Weapon.cs" />

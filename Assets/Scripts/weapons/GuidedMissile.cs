@@ -11,17 +11,17 @@ using System;
 using UnityEngine;
 using _r = ResourceLoader;
 
-public class SimpleGun : Weapon
+public class GuidedMissile : Weapon
 {
   public GameObject shot;
   
+  private GameObject missileParticleSystem;
   private float nextFire;
   
-  public SimpleGun(GameObject spawnObject) : base(spawnObject)
+  public GuidedMissile(GameObject spawnObject) : base(spawnObject)
   {
-
-    
-    this.shot = _r.Load<GameObject>("Prefabs/Bolt");
+    // this.shot = _r.Load<GameObject>("Prefabs/Bolt");
+    this.shot = _r.Load<GameObject>("Prefabs/Missile");
     this.spawnObject.AddComponent<AudioSource>();
     this.spawnObject.audio.clip = _r.Load<AudioClip>("Audio/weapon_player");
     
@@ -32,12 +32,11 @@ public class SimpleGun : Weapon
     if (Time.time > nextFire)
       {
         nextFire = Time.time + fireRate;
-        
-        GameObject.Instantiate(this.shot, spawnObject.transform.position, Quaternion.Euler(0.0f, 0.0f, 0.0f));
-        
+      
+        GameObject o = GameObject.Instantiate(this.shot, spawnObject.transform.position, Quaternion.Euler(0.0f, 0.0f, 0.0f)) as GameObject;
+        o.AddComponent<EnemySeekerElement>();
+      
         this.spawnObject.audio.Play();
       }
   }
 }
-
-

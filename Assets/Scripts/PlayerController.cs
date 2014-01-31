@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
   
   public void Start()
   {
-    TripleGun weapon = new TripleGun(shotSpawn);
+    Weapon weapon = new GuidedMissile(shotSpawn);
     weapon.fireRate = 0.20f;
     
     this.currentWeapon = weapon;
