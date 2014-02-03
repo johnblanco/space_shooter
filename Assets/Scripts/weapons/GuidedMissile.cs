@@ -20,11 +20,9 @@ public class GuidedMissile : Weapon
   
   public GuidedMissile(GameObject spawnObject) : base(spawnObject)
   {
-    // this.shot = _r.Load<GameObject>("Prefabs/Bolt");
     this.shot = _r.Load<GameObject>("Prefabs/Missile");
     this.spawnObject.AddComponent<AudioSource>();
-    this.spawnObject.audio.clip = _r.Load<AudioClip>("Audio/weapon_player");
-    
+    this.spawnObject.audio.clip = _r.Load<AudioClip>("Audio/missile_launch");
   }
   
   public override void Fire()
