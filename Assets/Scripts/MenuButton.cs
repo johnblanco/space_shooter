@@ -19,6 +19,4 @@ public class MenuButton : MonoBehaviour {
   void OnMouseExit(){
     guiText.color = Color.white;
   }
-
-  
 }
