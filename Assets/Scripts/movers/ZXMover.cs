@@ -10,17 +10,14 @@
 using System;
 using UnityEngine;
 
-public abstract class Weapon
+public class ZXMover : MonoBehaviour
 {
-  public GameObject spawnObject;
-  public float fireRate = 0.20f; // default
-    
-  public Weapon(GameObject spawnObject)
+  public float speed;
+  
+  void Start()
   {
-    this.spawnObject = spawnObject;
+    rigidbody.velocity = new Vector3(1.0f, 0.0f, 1.0f) * speed;
   }
-    
-  public abstract void Fire();
+  
 }
-
 

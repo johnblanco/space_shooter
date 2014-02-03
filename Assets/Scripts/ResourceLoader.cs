@@ -19,7 +19,6 @@ public class ResourceLoader
     get { 
       if (instance == null)
         instance = new ResourceLoader();
-        
       return instance; 
     } 
   }

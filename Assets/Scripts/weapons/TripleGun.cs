@@ -14,7 +14,7 @@ using _r = ResourceLoader;
 public class TripleGun : Weapon
 {
   public GameObject shot;
-  public float fireRate = 0.20f; // default
+  
   private float nextFire;
   
   public TripleGun(GameObject spawnObject) : base(spawnObject)

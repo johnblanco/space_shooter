@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameController : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class GameController : MonoBehaviour
     
   void Start()
   {
+    
     gameOver = false;
     restart = false;
     restartText.text = "";
@@ -56,7 +58,7 @@ public class GameController : MonoBehaviour
                 yield return new WaitForSeconds(spawnWait);
               }
               yield return new WaitForSeconds(waveWait);
-            
+              
               if (gameOver)
                 {
                   restartText.text = "Press 'R' for Restart";
@@ -107,13 +109,23 @@ public class GameController : MonoBehaviour
               
                 PlayerController pController = player.GetComponent<PlayerController>();
                 
-                if (pController.currentWeapon is TripleGun)
-                  {
-                   
-                    pController.currentWeapon = new SimpleGun(pController.shotSpawn);
-                  } else
+                if (pController.currentWeapon is SimpleGun)
+                  { 
+                    pController.currentWeapon = new TripleGun(pController.shotSpawn);
+                    return;
+                  }
+                
+                  if (pController.currentWeapon is TripleGun)
                     {
-                      pController.currentWeapon = new TripleGun(pController.shotSpawn);
+                      pController.currentWeapon = new GuidedMissile(pController.shotSpawn);
+                      return;
                     }
+                
+                    if (pController.currentWeapon is GuidedMissile)
+                      {
+                        pController.currentWeapon = new SimpleGun(pController.shotSpawn);
+                        return;
+                      }
+                
               }
 }
