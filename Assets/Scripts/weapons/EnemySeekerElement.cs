@@ -18,7 +18,7 @@ public class EnemySeekerElement : MonoBehaviour
   {
     // crea una box con dimensiones 5, 1, 5, con centro en posicion bala.z + 2.5
     
-    Vector3 boxCenter = new Vector3(transform.position.x, transform.position.y, transform.position.z + 2.5f);
+    Vector3 boxCenter = new Vector3(transform.position.x, transform.position.y, transform.position.z + 7.5f);
     Bounds box = new Bounds(boxCenter, new Vector3(15, 1, 15));
     
     GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
