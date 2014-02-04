@@ -2,21 +2,35 @@
 using System.Collections;
 
 public class MenuButton : MonoBehaviour {
+  void OnMouseEnter(){
+    toggleButtonSelection(guiText);
+  }
+
+  void OnMouseExit(){
+    toggleButtonSelection(guiText);
+  }
+
   void OnMouseDown(){
     if(tag == "1PButton"){
       Application.LoadLevel("Main");  
     }
+
+    if(tag == "2PButton"){
+      Application.LoadLevel("Main");  
+    }      
+
 
     if(tag == "QuitButton"){
       Application.Quit();
     }
   }
 
-  void OnMouseOver(){
-    guiText.color = Color.magenta;
+  void toggleButtonSelection(GUIText button){
+    if(button.color == Color.white){
+      button.color = Color.magenta;
+    }else{
+      button.color = Color.white;
+    }
   }
 
-  void OnMouseExit(){
-    guiText.color = Color.white;
-  }
 }
