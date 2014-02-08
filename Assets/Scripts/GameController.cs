@@ -6,6 +6,7 @@ public class GameController : MonoBehaviour
 {
   public GameObject playerExplosion;
   public GameObject player;
+  public GameObject player2;
   public GameObject[] hazards;
   public Vector3 spawnValues;
   public int hazardCount;
@@ -20,17 +21,26 @@ public class GameController : MonoBehaviour
   private bool gameOver;
   private bool restart;
   private int score;
+  private TwoPlayerFlag twoPlayerFlag;
+  private bool twoPlayerGame;
     
   void Start()
   {
     
     gameOver = false;
     restart = false;
+    twoPlayerGame = false;
     restartText.text = "";
     gameOverText.text = "";
     score = 0;
     UpdateScore();
     StartCoroutine(SpawnWaves());
+    if(GameObject.Find("2PlayerFlag") != null){
+      twoPlayerFlag = GameObject.Find("2PlayerFlag").GetComponent <TwoPlayerFlag>();  
+      twoPlayerGame = twoPlayerFlag.twoPlayerGame;
+
+    }
+    player2.SetActive(twoPlayerGame);
   }
     
   void Update()

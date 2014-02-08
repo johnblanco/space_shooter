@@ -16,7 +16,9 @@ public class MenuButton : MonoBehaviour {
     }
 
     if(tag == "2PButton"){
-      Application.LoadLevel("Main");  
+      TwoPlayerFlag twoPlayerFlag = GameObject.Find("2PlayerFlag").GetComponent <TwoPlayerFlag>();
+      twoPlayerFlag.twoPlayerGame = true;
+      Application.LoadLevel("Main");
     }      
 
 
