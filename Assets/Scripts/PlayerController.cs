@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
   public void Start()
   {
     Debug.Log("no esta andando el player 2 porque nunca se llega a hacer setActive, el start salta solo una vez");
+    Debug.Log("las cajas aparecen multiples cuando la nave enemiga explota por bala triple");
     Weapon weapon = new GuidedMissile(shotSpawn);
     weapon.fireRate = 0.20f;
     
