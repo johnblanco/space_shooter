@@ -4,10 +4,9 @@ using System.Collections.Generic;
 
 public class GameController : MonoBehaviour
 {
+  public PlayerController player1;
+  public PlayerController player2;
   public GameObject playerExplosion;
-  public GameObject player;
-  public GameObject player2;
-  public GameObject energyBar2Wrapper;
   public GameObject[] hazards;
   public Vector3 spawnValues;
   public int hazardCount;
@@ -19,33 +18,20 @@ public class GameController : MonoBehaviour
   public GUIText gameOverText;
   public EnergyBar energyBar;
   public EnergyBar energyBar2;
-  public int playerHealth;
-  public int playerHealth2;
   private bool gameOver;
   private bool restart;
   private int score;
-  private TwoPlayerFlag twoPlayerFlag;
-  private bool twoPlayerGame;
 
   void Start()
   {
 
     gameOver = false;
     restart = false;
-    twoPlayerGame = false;
     restartText.text = "";
     gameOverText.text = "";
     score = 0;
     UpdateScore();
     StartCoroutine(SpawnWaves());
-    if(GameObject.Find("2PlayerFlag") != null){
-      twoPlayerFlag = GameObject.Find("2PlayerFlag").GetComponent <TwoPlayerFlag>();  
-      twoPlayerGame = twoPlayerFlag.twoPlayerGame;
-
-    }
-    player2.SetActive(twoPlayerGame);
-    energyBar2Wrapper.SetActive(twoPlayerGame);
-
   }
 
   void Update()
@@ -56,6 +42,10 @@ public class GameController : MonoBehaviour
       {
         Application.LoadLevel(Application.loadedLevel);
       }
+    }
+
+    if(player1.health == 0 && player2.health == 0 ){
+      GameOver();
     }
   }
 
@@ -100,42 +90,22 @@ public class GameController : MonoBehaviour
     gameOver = true;
   }
 
-  public void RestoreHealth(int healthPoints)
+  public void RestoreHealth(int healthPoints, PlayerController player)
   {
-    playerHealth = Mathf.Clamp(playerHealth + healthPoints, 0, 100);
-    energyBar.health = playerHealth;
+    player.health = Mathf.Clamp(player.health + healthPoints, 0, 100);
   }
 
-  public void HitPlayer(int hitPoints)
+  public void HitPlayer(int hitPoints, PlayerController damagedPlayer)
   {
-    playerHealth = Mathf.Clamp(playerHealth-hitPoints,0,100);
-    energyBar.health = playerHealth;
-    if (playerHealth == 0)
+    damagedPlayer.health = Mathf.Clamp(damagedPlayer.health-hitPoints,0,100);
+    if (damagedPlayer.health == 0)
     {
-      Destroy(player);
-      Instantiate(playerExplosion, player.transform.position, player.transform.rotation);
-      if(playerHealth2 <= 0 || !twoPlayerGame)
-        GameOver();
+      Instantiate(playerExplosion, damagedPlayer.transform.position, damagedPlayer.transform.rotation);
+      Destroy(damagedPlayer.gameObject);
     }
   }
-  public void HitPlayer2(int hitPoints)
+  public void GiveWeapon(PlayerController pController)
   {
-    playerHealth2 = Mathf.Clamp(playerHealth2-hitPoints,0,100);
-    energyBar2.health = playerHealth2;
-    if (playerHealth2 <= 0)
-    {
-      Destroy(player2);
-      Instantiate(playerExplosion, player2.transform.position, player2.transform.rotation);
-      if(playerHealth <= 0 )
-        GameOver();
-    }
-  }
-
-  public void GiveWeapon()
-  {
-
-    PlayerController pController = player.GetComponent<PlayerController>();
-
     if (pController.currentWeapon is SimpleGun)
     { 
       pController.currentWeapon = new TripleGun(pController.shotSpawn);

@@ -23,9 +23,9 @@ public class LootBox : MonoBehaviour {
     if (other.tag == "Player")
     {
       if(isHealth)
-        gameController.RestoreHealth(34);
+        gameController.RestoreHealth(34,other.gameObject.GetComponent<PlayerController>());
       else
-        gameController.GiveWeapon();
+        gameController.GiveWeapon(other.gameObject.GetComponent<PlayerController>());
       
       Destroy(gameObject);
 

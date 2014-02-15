@@ -33,15 +33,13 @@ public class DestroyByContact : MonoBehaviour
     }
 
     if (other.tag == "Player"){
-      gameController.HitPlayer(34);
+      gameController.HitPlayer(34,other.gameObject.GetComponent<PlayerController>());
     } else{
       Destroy(other.gameObject);
       MaybeGiveLoot();
     }
 
       gameController.AddScore(scoreValue);
-
-
       Destroy(gameObject);
     }
 

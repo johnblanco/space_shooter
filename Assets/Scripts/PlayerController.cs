@@ -15,15 +15,26 @@ public class PlayerController : MonoBehaviour
   
   public GameObject shotSpawn;
   public Weapon currentWeapon;
+  public int health;
+  public EnergyBar energyBar;
   public bool isPlayer2;
-  
+
   public void Start()
   {
+    Debug.Log("no esta andando el player 2 porque nunca se llega a hacer setActive, el start salta solo una vez");
     Weapon weapon = new GuidedMissile(shotSpawn);
     weapon.fireRate = 0.20f;
     
     this.currentWeapon = weapon;
-    
+
+    if(GameObject.Find("2PlayerFlag") != null && isPlayer2){
+      TwoPlayerFlag twoPlayerFlag = GameObject.Find("2PlayerFlag").GetComponent <TwoPlayerFlag>();
+      if(twoPlayerFlag.twoPlayerGame){
+        gameObject.SetActive(true);
+        health = 100;
+      }
+    }
+
   }
     
   void Update()
@@ -35,6 +46,8 @@ public class PlayerController : MonoBehaviour
     if (Input.GetButton("Fire2") && isPlayer2){
       this.currentWeapon.Fire();
     }
+
+    energyBar.health = health;
   }
 
   void FixedUpdate()

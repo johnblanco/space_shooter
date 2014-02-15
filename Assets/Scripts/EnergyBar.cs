@@ -3,29 +3,49 @@ using System.Collections;
 
 public class EnergyBar : MonoBehaviour {
   public GUITexture healthBar;
+  public GUITexture healthBar2;
   public int health;
 
   private int previousHealth;
+  public bool isPlayer2;
 
   void Start () {
     previousHealth = -1;
+
+    if(GameObject.Find("2PlayerFlag") != null && isPlayer2){
+      TwoPlayerFlag twoPlayerFlag = GameObject.Find("2PlayerFlag").GetComponent <TwoPlayerFlag>();
+      if(twoPlayerFlag.twoPlayerGame){
+        gameObject.SetActive(true);
+        health = 100;
+      }
+    }
+
 	}
 
   void Update(){
-    //100 de vida -> 25 barritas
-    //4 -> 1
-    //8 -> 2
     if(health != previousHealth){
-      GameObject[] healthBars = GameObject.FindGameObjectsWithTag("HealthBar"); //obtengo barritas que habia
+      GameObject[] healthBars;
+      Rect pixelInset;
+      GUITexture newBar;
+
+      if(isPlayer2){
+        healthBars = GameObject.FindGameObjectsWithTag("HealthBar2"); //obtengo barritas que habia
+        pixelInset = healthBar2.pixelInset;
+        newBar = healthBar2;
+      }else{
+        healthBars = GameObject.FindGameObjectsWithTag("HealthBar"); //obtengo barritas que habia
+        pixelInset = healthBar.pixelInset;
+        newBar = healthBar;
+      }
+       
       foreach (GameObject hb in healthBars) {
         Destroy(hb);
       }
 
       int barAmount = health/4;
-      Rect pixelInset = healthBar.pixelInset;
 
       for(int i=0; i < barAmount; i++){
-        GUITexture texture = Instantiate(healthBar, transform.position + Vector3.forward, Quaternion.identity) as GUITexture; 
+        GUITexture texture = Instantiate(newBar, transform.position + Vector3.forward, Quaternion.identity) as GUITexture; 
         texture.pixelInset = pixelInset;
         pixelInset.x += 5;
 
