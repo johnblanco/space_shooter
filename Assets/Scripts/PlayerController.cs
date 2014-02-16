@@ -21,9 +21,7 @@ public class PlayerController : MonoBehaviour
 
   public void Start()
   {
-    Debug.Log("no esta andando el player 2 porque nunca se llega a hacer setActive, el start salta solo una vez");
-    Debug.Log("las cajas aparecen multiples cuando la nave enemiga explota por bala triple");
-    Weapon weapon = new GuidedMissile(shotSpawn);
+    Weapon weapon = new TripleGun(shotSpawn);
     weapon.fireRate = 0.20f;
     
     this.currentWeapon = weapon;
@@ -31,9 +29,14 @@ public class PlayerController : MonoBehaviour
     if(GameObject.Find("2PlayerFlag") != null && isPlayer2){
       TwoPlayerFlag twoPlayerFlag = GameObject.Find("2PlayerFlag").GetComponent <TwoPlayerFlag>();
       if(twoPlayerFlag.twoPlayerGame){
-        gameObject.SetActive(true);
         health = 100;
+      }else{
+        gameObject.SetActive(false);
       }
+    }
+
+    if(GameObject.Find("2PlayerFlag") == null && isPlayer2){
+      gameObject.SetActive(false);
     }
 
   }

@@ -102,6 +102,12 @@ public class GameController : MonoBehaviour
     {
       Instantiate(playerExplosion, damagedPlayer.transform.position, damagedPlayer.transform.rotation);
       Destroy(damagedPlayer.gameObject);
+      if(damagedPlayer.isPlayer2){
+        energyBar2.health=0;
+      }else{
+        energyBar.health=0;
+      }
+
     }
   }
   public void GiveWeapon(PlayerController pController)

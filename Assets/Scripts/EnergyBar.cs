@@ -15,10 +15,16 @@ public class EnergyBar : MonoBehaviour {
     if(GameObject.Find("2PlayerFlag") != null && isPlayer2){
       TwoPlayerFlag twoPlayerFlag = GameObject.Find("2PlayerFlag").GetComponent <TwoPlayerFlag>();
       if(twoPlayerFlag.twoPlayerGame){
-        gameObject.SetActive(true);
         health = 100;
+      }else{
+        gameObject.SetActive(false);
       }
     }
+
+    if(GameObject.Find("2PlayerFlag") == null && isPlayer2){
+      gameObject.SetActive(false);
+    }
+
 
 	}
 
@@ -29,6 +35,7 @@ public class EnergyBar : MonoBehaviour {
       GUITexture newBar;
 
       if(isPlayer2){
+        //Debug.Break();
         healthBars = GameObject.FindGameObjectsWithTag("HealthBar2"); //obtengo barritas que habia
         pixelInset = healthBar2.pixelInset;
         newBar = healthBar2;
