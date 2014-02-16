@@ -8,6 +8,7 @@ public class DestroyByContact : MonoBehaviour
   private GameController gameController;
   public GameObject healthBox;
   public GameObject weaponBox;
+  private int lastFrameLoot;
 
   //los components que tienen attached este script son: enemigos, asteroides y bala de enemigo
 
@@ -48,8 +49,9 @@ public class DestroyByContact : MonoBehaviour
       if (healthBox != null && weaponBox != null)
       {
         bool hasToSpawn = true;
-        if (hasToSpawn){
+        if (hasToSpawn && Time.frameCount != lastFrameLoot){
           bool isHealth = Random.Range(0, 100) % 2 == 0;
+          lastFrameLoot = Time.frameCount;
           if (isHealth)
             Instantiate(healthBox, transform.position, transform.rotation);
           else
