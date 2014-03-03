@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ZMover : MonoBehaviour
+public class ZMover : Mover
 {
   public float speed;
 

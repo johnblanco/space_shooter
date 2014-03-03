@@ -13,6 +13,8 @@ using UnityEngine;
 public class EnemySeekerElement : MonoBehaviour
 {
   public GameObject target;
+  private float acceleration = 1.0f;
+  private float speed = 10f;
   
   public void Start()
   {
@@ -42,7 +44,7 @@ public class EnemySeekerElement : MonoBehaviour
             Vector3 directionToPlayer = target.transform.position - transform.position;
         
             transform.forward = directionToPlayer;
-            rigidbody.velocity = transform.forward * 10f;
+            rigidbody.velocity = transform.forward * speed * acceleration;
             //rigidbody.angularVelocity = new Vector3(30, 3, 12);
           } else
             { 

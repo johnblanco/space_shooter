@@ -10,14 +10,9 @@
 using System;
 using UnityEngine;
 
-public class ZXMover : Mover
+public abstract class Mover : MonoBehaviour
 {
-  public float speed;
-  
-  void Start()
-  {
-    rigidbody.velocity = new Vector3(1.0f, 0.0f, 1.0f) * speed;
-  }
-  
+
 }
+
 
