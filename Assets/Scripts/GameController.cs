@@ -55,102 +55,102 @@ public class GameController : MonoBehaviour
           yield return new WaitForSeconds(startWait);
           while (true)
             {
-              for (int i = 0; i < hazardCount; i++)
-                {
-                  GameObject hazard = hazards [Random.Range(0, hazards.Length)];
-                  Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
-                  Quaternion spawnRotation = Quaternion.identity;
-                  Instantiate(hazard, spawnPosition, spawnRotation);
-                  yield return new WaitForSeconds(spawnWait);
-                }
-                yield return new WaitForSeconds(waveWait);
+//              for (int i = 0; i < hazardCount; i++)
+//                {
+//                  GameObject hazard = hazards [Random.Range(0, hazards.Length)];
+//                  Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+//                  Quaternion spawnRotation = Quaternion.identity;
+//                  Instantiate(hazard, spawnPosition, spawnRotation);
+//                  yield return new WaitForSeconds(spawnWait);
+//                }
+              yield return new WaitForSeconds(waveWait);
 
-                if (gameOver)
-                  {
-                    yield return new WaitForSeconds(startWait);
-                    while (true)
-                      {
-                        for (int i = 0; i < hazardCount; i++)
-                          {
-                            GameObject hazard = hazards [Random.Range(0, hazards.Length)];
-                            Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
-                            Quaternion spawnRotation = Quaternion.identity;
-                            Instantiate(hazard, spawnPosition, spawnRotation);
-            
-                            yield return new WaitForSeconds(spawnWait);
-                          }
-                          yield return new WaitForSeconds(waveWait);
+              if (gameOver)
+                {
+                  yield return new WaitForSeconds(startWait);
+                  while (true)
+                    {
+//                      for (int i = 0; i < hazardCount; i++)
+//                        {
+//                          GameObject hazard = hazards [Random.Range(0, hazards.Length)];
+//                          Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+//                          Quaternion spawnRotation = Quaternion.identity;
+//                          Instantiate(hazard, spawnPosition, spawnRotation);
+//            
+//                          yield return new WaitForSeconds(spawnWait);
+//                        }
+                      yield return new WaitForSeconds(waveWait);
               
-                          if (gameOver)
-                            {
-                              restartText.text = "Press 'R' for Restart";
-                              restart = true;
-                              break;
-                            }
-                      }
-                  }
+                      if (gameOver)
+                        {
+                          restartText.text = "Press 'R' for Restart";
+                          restart = true;
+                          break;
+                        }
+                    }
+                }
             }
         }
 
-                    public void AddScore(int newScoreValue)
-                    {
-                      score += newScoreValue;
-                      UpdateScore();
-                    }
+                public void AddScore(int newScoreValue)
+                {
+                  score += newScoreValue;
+                  UpdateScore();
+                }
 
-                    void UpdateScore()
-                    {
-                      scoreText.text = "Score: " + score;
-                    }
+                void UpdateScore()
+                {
+                  scoreText.text = "Score: " + score;
+                }
 
-                    public void GameOver()
-                    {
-                      gameOverText.text = "Game Over!";
-                      gameOver = true;
-                    }
+                public void GameOver()
+                {
+                  gameOverText.text = "Game Over!";
+                  gameOver = true;
+                }
 
-                    public void RestoreHealth(int healthPoints, PlayerController player)
-                    {
-                      player.health = Mathf.Clamp(player.health + healthPoints, 0, 100);
-                    }
+                public void RestoreHealth(int healthPoints, PlayerController player)
+                {
+                  player.health = Mathf.Clamp(player.health + healthPoints, 0, 100);
+                }
 
-                    public void HitPlayer(int hitPoints, PlayerController damagedPlayer)
+                public void HitPlayer(int hitPoints, PlayerController damagedPlayer)
+                {
+                  damagedPlayer.health = Mathf.Clamp(damagedPlayer.health - hitPoints, 0, 100);
+                  if (damagedPlayer.health == 0)
                     {
-                      damagedPlayer.health = Mathf.Clamp(damagedPlayer.health - hitPoints, 0, 100);
-                      if (damagedPlayer.health == 0)
+                      Instantiate(playerExplosion, damagedPlayer.transform.position, damagedPlayer.transform.rotation);
+                      Destroy(damagedPlayer.gameObject);
+                      if (damagedPlayer.isPlayer2)
                         {
-                          Instantiate(playerExplosion, damagedPlayer.transform.position, damagedPlayer.transform.rotation);
-                          Destroy(damagedPlayer.gameObject);
-                          if (damagedPlayer.isPlayer2)
-                            {
-                              energyBar2.health = 0;
-                            } else
-                              {
-                                energyBar.health = 0;
-                              }
-
-                        }
-                    }
-
-                          public void GiveWeapon(PlayerController pController)
+                          energyBar2.health = 0;
+                        } else
                           {
-                            if (pController.currentWeapon is SimpleGun)
-                              { 
-                                pController.currentWeapon = new TripleGun(pController.shotSpawn);
+                            energyBar.health = 0;
+                          }
+
+                    }
+                }
+
+                      public void GiveWeapon(PlayerController pController)
+                      {
+                        if (pController.currentWeapon is SimpleGun)
+                          { 
+                            pController.currentWeapon = new TripleGun(pController.shotSpawn);
+                            return;
+                          }
+
+                          if (pController.currentWeapon is TripleGun)
+                            {
+                              pController.currentWeapon = new GuidedMissile(pController.shotSpawn);
+                              return;
+                            }
+
+                            if (pController.currentWeapon is GuidedMissile)
+                              {
+                                pController.currentWeapon = new SimpleGun(pController.shotSpawn);
                                 return;
                               }
 
-                              if (pController.currentWeapon is TripleGun)
-                                {
-                                  pController.currentWeapon = new GuidedMissile(pController.shotSpawn);
-                                  return;
-                                }
-
-                                if (pController.currentWeapon is GuidedMissile)
-                                  {
-                                    pController.currentWeapon = new SimpleGun(pController.shotSpawn);
-                                    return;
-                                  }
-
-                          }
+                      }
 }
