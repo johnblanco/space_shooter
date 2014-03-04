@@ -1,7 +1,6 @@
 
 using System;
 using UnityEngine;
-using _r = ResourceLoader;
 
 public class AsteroidsWave : Wave
 {
@@ -16,7 +15,6 @@ public class AsteroidsWave : Wave
   public void Start()
   {
     spawnValues = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().spawnValues;
-    Debug.Log(spawnValues);
   }
   
   public override void SpawnObject(int currentIndex)
@@ -24,7 +22,6 @@ public class AsteroidsWave : Wave
     GameObject asteroid = asteroids [currentIndex % asteroids.Length];
     Vector3 spawnPosition = new Vector3(wrapPosition(-spawnValues.x, spawnValues.x, currentIndex), spawnValues.y, spawnValues.z);
     
-//    Debug.Log(currentIndex % asteroids.Length);
     GameObject.Instantiate(asteroid, spawnPosition, Quaternion.identity);
   }
   
