@@ -29,7 +29,6 @@ public class AsteroidsWave : Wave
   {
     float intervalLenth = xMax - xMin;
     float result = xMin + (value % intervalLenth);
-    Debug.Log(result);
     return result;
   }
 }
