@@ -20,7 +20,7 @@ public class AsteroidsWave : Wave
   { 
     GameObject asteroid = asteroids [currentIndex % asteroids.Length];
     Vector3 spawnPosition = new Vector3(WrapPosition(-spawnValues.x, spawnValues.x, currentIndex), spawnValues.y, spawnValues.z);
-    
+
     GameObject.Instantiate(asteroid, spawnPosition, Quaternion.identity);
   }
   
