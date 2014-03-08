@@ -12,7 +12,16 @@ using UnityEngine;
 
 public abstract class Wave : MonoBehaviour
 {
+  public Vector3 spawnValues;
+  
   public abstract void SpawnObject(int currentIndex);
+  
+  protected float WrapPosition(float xMin, float xMax, float value)
+  {
+    float intervalLenth = xMax - xMin > 0 ? xMax - xMin : 1;
+    float result = xMin + (value % intervalLenth);
+    return result;
+  }
 }
 
 
