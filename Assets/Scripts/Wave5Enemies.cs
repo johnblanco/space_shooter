@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Wave5Enemies : Wave {
   public GameObject enemy;
+  public GameObject enemy2;
   
   public void Start()
   {
@@ -17,20 +18,20 @@ public class Wave5Enemies : Wave {
     Vector3 spawnPosition;
 
     if(currentIeration == 0){
-      spawnPosition = new Vector3(-2,0,16);
+      spawnPosition = new Vector3(-2,0,18);
       Instantiate(enemy, spawnPosition, Quaternion.identity);
 
-      spawnPosition = new Vector3(2,0,16);
+      spawnPosition = new Vector3(2,0,18);
       Instantiate(enemy, spawnPosition, Quaternion.identity);
     }else{
-      spawnPosition = new Vector3(-3,0,16);
-      Instantiate(enemy, spawnPosition, Quaternion.identity);
+      spawnPosition = new Vector3(-4,0,18);
+      Instantiate(enemy2, spawnPosition, Quaternion.identity);
 
-      spawnPosition = new Vector3(0,0,16);
-      Instantiate(enemy, spawnPosition, Quaternion.identity);
+      spawnPosition = new Vector3(0,0,18);
+      Instantiate(enemy2, spawnPosition, Quaternion.identity);
 
-      spawnPosition = new Vector3(3,0,16);
-      Instantiate(enemy, spawnPosition, Quaternion.identity);
+      spawnPosition = new Vector3(4,0,18);
+      Instantiate(enemy2, spawnPosition, Quaternion.identity);
     }
   }
 }
