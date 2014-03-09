@@ -40,9 +40,9 @@ public class DestroyByContact : MonoBehaviour
       MaybeGiveLoot();
     }
 
-      gameController.AddScore(scoreValue);
-      Destroy(gameObject);
-    }
+    gameController.AddScore(scoreValue);
+    Destroy(gameObject);
+  } 
 
     void MaybeGiveLoot()
     {
