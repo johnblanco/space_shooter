@@ -1,6 +1,19 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/destroyers/DestroyByContact.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Level/Level2Config.cs" Line="17" Column="112" />
+      <File FileName="Assets/Scripts/GameController.cs" Line="143" Column="52" />
+      <File FileName="Assets/PlayMaker/Actions/SetFsmVariable.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/waves/WaveFsmConfig.cs" Line="1" Column="1" />
+      <File FileName="Assets/PlayMaker/Actions/DebugDrawShape.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PlayerController.cs" Line="46" Column="31" />
+      <File FileName="Assets/Scripts/waves/AsteroidsRandomWave.cs" Line="16" Column="9" />
+      <File FileName="Assets/Scripts/Level/LevelConfig.cs" Line="17" Column="1" />
+      <File FileName="Assets/Scripts/destroyers/DestroyByContact.cs" Line="62" Column="28" />
+      <File FileName="Assets/Scripts/weapons/WeaponController.cs" Line="18" Column="33" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
