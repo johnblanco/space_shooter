@@ -9,6 +9,8 @@ public class DestroyByContact : MonoBehaviour
     public GameObject healthBox;
     public GameObject weaponBox;
     private int lastFrameLoot;
+    public bool givesWeapon;
+    public bool givesHealth;
 
     //los components que tienen attached este script son: enemigos, asteroides y bala de enemigo
 
@@ -48,27 +50,17 @@ public class DestroyByContact : MonoBehaviour
         } else
         {
             Destroy(other.gameObject);
-            //MaybeGiveLoot();
+            if(givesHealth){
+              Instantiate(healthBox, transform.position, transform.rotation);  
+            }
+            else if(givesWeapon){
+              Instantiate(weaponBox, transform.position, transform.rotation);
+            }
         }
 
         gameController.AddScore(scoreValue);
         Destroy(gameObject);
     } 
 
-    void MaybeGiveLoot()
-    {
-        if (healthBox != null && weaponBox != null)
-        {
-            bool hasToSpawn = true;
-            if (hasToSpawn && Time.frameCount != lastFrameLoot)
-            {
-                bool isHealth = Random.Range(0, 100) % 2 == 0;
-                lastFrameLoot = Time.frameCount;
-                if (isHealth)
-                    Instantiate(healthBox, transform.position, transform.rotation);
-                else
-                    Instantiate(weaponBox, transform.position, transform.rotation);     
-            }
-        }
-    }
+    
 }

@@ -4,6 +4,7 @@ using System.Collections;
 public class Wave6WithCommander : Wave
 {
     public GameObject enemy;
+    public GameObject heavyEnemy;
 
     public void Start()
     {
@@ -20,13 +21,15 @@ public class Wave6WithCommander : Wave
             Instantiate(enemy, spawnPosition, Quaternion.identity);
             
             spawnPosition = new Vector3(4, 0, 16);
-            Instantiate(enemy, spawnPosition, Quaternion.identity);
+            GameObject gameObjectShip = Instantiate(enemy, spawnPosition, Quaternion.identity) as GameObject; // este lleva salud
+            gameObjectShip.GetComponent<DestroyByContact>().givesHealth = true;
         } 
         
         if (currentIeration == 1)
         {
             spawnPosition = new Vector3(-6, 0, 17);
-            Instantiate(enemy, spawnPosition, Quaternion.identity);
+            GameObject ship = Instantiate(enemy, spawnPosition, Quaternion.identity) as GameObject; // este lleva arma!
+            ship.GetComponent<DestroyByContact>().givesWeapon = true;
             
             spawnPosition = new Vector3(-2, 0, 17);
             Instantiate(enemy, spawnPosition, Quaternion.identity);
@@ -41,7 +44,7 @@ public class Wave6WithCommander : Wave
         if (currentIeration == 2)
         {
             spawnPosition = new Vector3(0, 0, 18);
-            Instantiate(enemy, spawnPosition, Quaternion.identity);
+            Instantiate(heavyEnemy, spawnPosition, Quaternion.identity);
         }
     }
 } 

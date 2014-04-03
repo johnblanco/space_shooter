@@ -8,6 +8,8 @@ public class LootBox : MonoBehaviour {
 
   void Start ()
   {
+    rigidbody.velocity = Vector3.forward * -5;
+
     GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
     if (gameControllerObject != null)
     {
